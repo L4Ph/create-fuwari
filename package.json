@@ -1,0 +1,17 @@
+{
+  "name": "create-fuwari",
+  "module": "mod.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/degit": "^2.8.6",
+    "degit": "^2.8.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.0.1",
+    "install": "^0.13.0"
+  }
+}
