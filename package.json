@@ -2,16 +2,19 @@
   "name": "create-fuwari",
   "module": "mod.ts",
   "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "@types/degit": "^2.8.6",
-    "degit": "^2.8.4"
+  "scripts": {
+    "run": "node -r @swc-node/register ./src/index.ts"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.0.1",
-    "install": "^0.13.0"
+    "@oxc-node/core": "^0.0.15",
+    "giget": "^1.2.3"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.10.9",
+    "tsx": "^4.19.2"
   }
 }
