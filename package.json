@@ -3,7 +3,7 @@
   "module": "mod.ts",
   "type": "module",
   "scripts": {
-    "run": "node -r @swc-node/register ./src/index.ts"
+    "start": "tsx ./mod.ts"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
