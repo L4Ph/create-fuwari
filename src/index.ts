@@ -1,11 +1,16 @@
 import { input, select } from "@inquirer/prompts";
 import fs from "node:fs/promises";
 import downloadFuwari from "./utils/download-fuwari";
+import { createSpinner } from "nanospinner";
 
 const repo = "gh:saicaca/fuwari";
+const spinner = createSpinner();
 
 try {
+  const spinner = createSpinner();
+  spinner.start();
   const fuwariDir = await downloadFuwari(repo);
+  spinner.success();
 
   const configPath = `${fuwariDir}/src/config.ts`;
 
