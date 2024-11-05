@@ -1,7 +1,9 @@
 {
   "name": "create-fuwari",
   "type": "module",
-  "bin": "./dist/index.mjs",
+  "bin": {
+    "create-fuwari": "./dist/index.mjs"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs"
