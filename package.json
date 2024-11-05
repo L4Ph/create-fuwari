@@ -17,7 +17,8 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "build": "unbuild",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "publish": "unbuild && pnpm publish"
   },
   "author": "L4Ph <https://github.com/L4Ph>",
   "license": "MIT",
