@@ -2,7 +2,7 @@
   "name": "create-fuwari",
   "type": "module",
   "bin": {
-    "create-fuwari": "./dist/index.mjs"
+    "create-fuwari": "./bin/cli.mjs"
   },
   "exports": {
     ".": {
@@ -17,8 +17,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "build": "unbuild",
-    "check": "tsc --noEmit",
-    "publish": "unbuild && pnpm publish"
+    "check": "tsc --noEmit"
   },
   "author": "L4Ph <https://github.com/L4Ph>",
   "license": "MIT",
