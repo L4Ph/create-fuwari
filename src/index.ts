@@ -1,43 +1,49 @@
-import { input, select } from "@inquirer/prompts";
+import { input, select, confirm } from "@inquirer/prompts";
 import fs from "node:fs/promises";
 import downloadFuwari from "./utils/download-fuwari";
-import { createSpinner } from "nanospinner";
+import { readPackageJSON, writePackageJSON } from "pkg-types";
+import path from "node:path";
 
-const repo = "gh:saicaca/fuwari";
-const spinner = createSpinner();
+const projectName = await input({
+  message: "Please enter the project name:",
+  default: "fuwari",
+});
+const inputTitle = await input({
+  message: "Please enter the site title:",
+  default: "Fuwari",
+});
+const inputSubTitle = await input({
+  message: "Please enter the site subtitle:",
+  default: "Demo Site",
+});
+const selectLang = await select({
+  message: "Please select the language of the site.",
+  default: "en",
+  choices: ["en", "zh_CN", "zh_TW", "ja", "ko"],
+});
 
-try {
-  const spinner = createSpinner();
-  spinner.start();
-  const fuwariDir = await downloadFuwari(repo);
-  spinner.success();
+const installDeps = await confirm({ message: "Install Dependencies?" });
 
-  const configPath = `${fuwariDir}/src/config.ts`;
+const projectDir = await downloadFuwari(projectName, installDeps);
 
-  const configContent = await fs.readFile(configPath, "utf-8");
+const configPath = `${projectDir}/src/config.ts`;
 
-  const inputTitle = await input({
-    message: "Please enter the site title:",
-    default: "Fuwari",
-  });
-  const inputSubTitle = await input({
-    message: "Please enter the site subtitle:",
-    default: "Demo Site",
-  });
-  const selectLang = await select({
-    message: "Please select the language of the site.",
-    default: "en",
-    choices: ["en", "zh_CN", "zh_TW", "ja", "ko"],
-  });
+const configContent = await fs.readFile(configPath, "utf-8");
 
-  const updatedConfigContent = configContent
-    .replace(/title: 'Fuwari'/, `title: '${inputTitle}'`)
-    .replace(/subtitle: 'Demo Site'/, `subtitle: '${inputSubTitle}'`)
-    .replace(/lang: 'en'/, `lang: '${selectLang}'`);
+const updatedConfigContent = configContent
+  .replace(/title: 'Fuwari'/, `title: '${inputTitle}'`)
+  .replace(/subtitle: 'Demo Site'/, `subtitle: '${inputSubTitle}'`)
+  .replace(/lang: 'en'/, `lang: '${selectLang}'`);
 
-  await fs.writeFile(configPath, updatedConfigContent, "utf-8");
+await fs.writeFile(configPath, updatedConfigContent, "utf-8");
 
-  console.log("config updated successfully!");
-} catch (error) {
-  console.error("Failed to download template:", error);
+const packageJson = await readPackageJSON(projectDir);
+
+if (packageJson.name && projectDir) {
+  packageJson.name = projectName;
+  const jsonPath = path.resolve(projectDir, "package.json");
+  await writePackageJSON(jsonPath, packageJson);
 }
+
+console.log("Done!😊");
+console.log(`cd ${projectName}`);

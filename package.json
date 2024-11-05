@@ -1,19 +1,31 @@
 {
   "name": "create-fuwari",
-  "module": "mod.ts",
+  "module": "src/index.ts",
   "type": "module",
+  "exports": "./dist/index.mjs",
+  "bin": "./dist/cli.js",
   "scripts": {
-    "start": "tsx ./mod.ts"
+    "start": "tsx src/index.ts",
+    "build": "pkgroll",
+    "check": "tsc --noEmit"
+  },
+  "author": "L4Ph <https://github.com/L4Ph>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/L4Ph/create-fuwari.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
     "typescript": "^5.6.3"
   },
-  "dependencies": {
+  "devDependencies": {
     "@inquirer/prompts": "^7.0.1",
     "giget": "^1.2.3",
-    "nanospinner": "^1.2.0"
-  },
-  "devDependencies": {
+    "pkg-types": "^1.2.1",
+    "pkgroll": "^2.5.1",
     "tsx": "^4.19.2"
   }
 }
