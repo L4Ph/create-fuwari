@@ -1,6 +1,7 @@
 {
   "name": "create-fuwari",
   "type": "module",
+  "module": "ESNext",
   "bin": {
     "create-fuwari": "./bin/cli.mjs"
   },
@@ -9,14 +10,16 @@
       "import": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
+    "bin",
     "dist"
   ],
   "scripts": {
     "start": "tsx src/index.ts",
-    "build": "unbuild",
+    "build": "rslib build",
+    "build:watch": "rslib build --watch",
     "check": "tsc --noEmit"
   },
   "author": "L4Ph <https://github.com/L4Ph>",
@@ -32,11 +35,13 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
+    "@rslib/core": "^0.0.18",
+    "tsx": "^4.19.2"
+  },
+  "version": "0.0.6",
+  "dependencies": {
     "@inquirer/prompts": "^7.0.1",
     "giget": "^1.2.3",
-    "pkg-types": "^1.2.1",
-    "tsx": "^4.19.2",
-    "unbuild": "^2.0.0"
-  },
-  "version": "0.0.6"
+    "pkg-types": "^1.2.1"
+  }
 }
