@@ -38,7 +38,7 @@
     "@rslib/core": "^0.0.18",
     "tsx": "^4.19.2"
   },
-  "version": "0.0.6",
+  "version": "0.0.7",
   "dependencies": {
     "@inquirer/prompts": "^7.0.1",
     "giget": "^1.2.3",
