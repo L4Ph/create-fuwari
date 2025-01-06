@@ -1,19 +1,17 @@
 import { defineConfig } from "@rslib/core";
+import { pluginTypeCheck } from "@rsbuild/plugin-type-check";
 
 export default defineConfig({
+  plugins: [pluginTypeCheck()],
   lib: [
     {
       format: "esm",
-      syntax: "esnext",
+      syntax: 'es2024',
       bundle: true,
+      dts: true
     }
   ],
   output: {
     target: "node",
-  },
-  source: {
-    entry: {
-      index: './src/index.ts',
-    },
-  },
+  }
 });
