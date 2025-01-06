@@ -1,4 +1,3 @@
-import { input } from "@inquirer/prompts";
 import { downloadTemplate } from "giget";
 
 export default async function downloadFuwari(
@@ -19,6 +18,7 @@ export default async function downloadFuwari(
     console.log("Downloaded to:", dir);
 
     return dir;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   } catch (error: any) {
     console.error("Error downloading template:", error.message);
     console.error(error);

@@ -1,15 +1,38 @@
-# create-fuwari
+# What is this?
 
-To install dependencies:
+Create a fuwari template from saicaca/fuwari
 
-```bash
-pnpm install
-```
-
-To run:
+## Quick Start
 
 ```bash
-pnpm run start
+# npm
+npm create fuwari@latest
+
+# yarn
+yarn create fuwari
+
+# pnpm
+pnpm create fuwari@latest
+
+# bun
+bun create fuwari@latest
+
+# deno
+deno run -A npm:create-fuwari@latest
 ```
 
-This project was created using `bun init` in bun v1.1.33. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Options
+
+none
+
+## Author
+
+Katsuyuki Karasawa <https://github.com/L4Ph>
+
+and [saicaca](https://github.com/saicaca)
+
+## License
+
+MIT
+
+see [LICENSE](./LICENSE)
