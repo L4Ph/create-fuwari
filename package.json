@@ -40,5 +40,8 @@
     "pkg-types": "^1.3.0",
     "typescript": "^5.7.2"
   },
+  "np": {
+    "tests": false
+  },
   "version": "0.0.9"
 }
