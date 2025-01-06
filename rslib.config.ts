@@ -6,16 +6,14 @@ export default defineConfig({
       format: "esm",
       syntax: "esnext",
       bundle: true,
-      autoExtension: true,
-      dts: true,
-    },
+    }
   ],
   output: {
     target: "node",
   },
   source: {
     entry: {
-      index: "./src/index.ts",
+      index: './src/index.ts',
     },
   },
 });
