@@ -38,7 +38,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   },
-  "version": "0.0.10-0",
+  "version": "0.0.11-0",
   "dependencies": {
     "@inquirer/prompts": "^7.2.1",
     "giget": "^1.2.3",
