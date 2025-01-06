@@ -13,7 +13,6 @@ export default async function downloadFuwari(
       dir: destination,
       install: installDeps,
       force: true,
-      offline: true,
     });
     console.log("Downloaded to:", dir);
 
