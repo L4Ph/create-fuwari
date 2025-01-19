@@ -31,17 +31,15 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@rsbuild/plugin-type-check": "^1.2.0",
-    "@rslib/core": "^0.3.0",
-    "@types/node": "^22.10.5",
+    "@rslib/core": "^0.3.2",
+    "@types/node": "^22.10.7",
     "np": "^10.1.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "version": "0.0.11",
   "dependencies": {
-    "@inquirer/prompts": "^7.2.1",
+    "@inquirer/prompts": "^7.2.3",
     "giget": "^1.2.3",
-    "pkg-types": "^1.3.0"
+    "pkg-types": "^1.3.1"
   }
 }
