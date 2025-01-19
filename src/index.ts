@@ -19,7 +19,7 @@ const inputSubTitle = await input({
 const selectLang = await select({
   message: "Please select the language of the site.",
   default: "en",
-  choices: ["en", "zh_CN", "zh_TW", "ja", "ko"],
+  choices: ["en", "zh_CN", "zh_TW", "ja", "ko", "es", "th"],
 });
 
 const installDeps = await confirm({ message: "Install Dependencies?" });
