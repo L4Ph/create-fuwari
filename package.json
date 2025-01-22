@@ -19,7 +19,8 @@
   "scripts": {
     "build": "rslib build",
     "build:watch": "rslib build --watch",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "biome": "biome"
   },
   "author": "L4Ph <https://github.com/L4Ph>",
   "license": "MIT",
