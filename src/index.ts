@@ -3,24 +3,28 @@ import fs from "node:fs/promises";
 import downloadFuwari from "./utils/download-fuwari";
 import { readPackageJSON, writePackageJSON } from "pkg-types";
 import path from "node:path";
+import { type SiteConfig } from "./types/config";
 
 const projectName = await input({
   message: "Please enter the project name:",
   default: "fuwari",
 });
+
 const inputTitle = await input({
   message: "Please enter the site title:",
   default: "Fuwari",
-});
+}) as SiteConfig["title"];
+
 const inputSubTitle = await input({
   message: "Please enter the site subtitle:",
   default: "Demo Site",
-});
+}) as SiteConfig["subtitle"];
+
 const selectLang = await select({
   message: "Please select the language of the site.",
   default: "en",
-  choices: ["en", "zh_CN", "zh_TW", "ja", "ko", "es", "th"],
-});
+  choices: ["en", "zh_CN", "zh_TW", "ja", "ko", "es", "th"] as const,
+}) as SiteConfig["lang"];
 
 const installDeps = await confirm({ message: "Install Dependencies?" });
 
