@@ -1,9 +1,9 @@
-import { input, select, confirm } from "@inquirer/prompts";
 import fs from "node:fs/promises";
-import downloadFuwari from "./utils/download-fuwari";
-import { readPackageJSON, writePackageJSON } from "pkg-types";
 import path from "node:path";
-import { type SiteConfig } from "./types/config";
+import { confirm, input, select } from "@inquirer/prompts";
+import { readPackageJSON, writePackageJSON } from "pkg-types";
+import type { SiteConfig } from "./types/config";
+import downloadFuwari from "./utils/download-fuwari";
 
 const projectName = await input({
 	message: "Please enter the project name:",
