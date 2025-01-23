@@ -1,13 +1,21 @@
 import { exec } from "node:child_process";
+import { promisify } from "node:util";
 
-exec("git init", (error, stdout, stderr) => {
-	if (error) {
-		console.error(`Error: ${error.message}`);
-		return;
-	}
-	if (stderr) {
-		console.error(`Stderr: ${stderr}`);
-		return;
-	}
-	console.log(`Stdout: ${stdout}`);
-});
+const execAsync = promisify(exec);
+
+export async function initializeGit(projectDir: string) {
+  try {
+    const { stdout, stderr } = await execAsync("git init", {
+      cwd: projectDir
+    });
+
+    if (stderr) {
+      console.error(`Git initialization error: ${stderr}`);
+      return;
+    }
+
+    console.log(`Git repository has been initialized: ${stdout}`);
+  } catch (error) {
+    console.error(`Fatal error: ${error}`);
+  }
+}

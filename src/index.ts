@@ -4,6 +4,7 @@ import { confirm, input, select } from "@inquirer/prompts";
 import { readPackageJSON, writePackageJSON } from "pkg-types";
 import type { SiteConfig } from "./types/config";
 import downloadFuwari from "./utils/download-fuwari";
+import { initializeGit } from "./utils/git-init";
 
 const projectName = await input({
 	message: "Please enter the project name:",
@@ -28,6 +29,8 @@ const selectLang = (await select({
 
 const installDeps = await confirm({ message: "Install Dependencies?" });
 
+const gitInit = await confirm({ message: "Initialize Git?" });
+
 const projectDir = await downloadFuwari(projectName, installDeps);
 
 const configPath = `${projectDir}/src/config.ts`;
@@ -49,5 +52,13 @@ if (packageJson.name && projectDir) {
 	await writePackageJSON(jsonPath, packageJson);
 }
 
-console.log("Done!😊");
+if (gitInit && projectDir) {
+  await initializeGit(projectDir);
+}
+
+console.log("Project setup complete!");
 console.log(`cd ${projectName}`);
+if (!installDeps) {
+  console.log("pnpm install");
+}
+console.log("pnpm run dev");
