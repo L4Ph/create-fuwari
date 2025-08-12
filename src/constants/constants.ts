@@ -1,8 +1,6 @@
 /**
- * @see {@link https://github.com/saicaca/fuwari/blob/main/src/constants/constants.ts}
+ * @see {@link https://github.com/saicaca/fuwari/blob/9a7d7b1f7db21f1252e20088e3932880b5bd43e8/src/constants/constants.ts}
  */
-
-export const UNCATEGORIZED = "__uncategorized__";
 
 export const PAGE_SIZE = 8;
 

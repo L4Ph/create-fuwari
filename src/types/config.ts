@@ -1,5 +1,5 @@
 /**
- * @see {@link https://github.com/saicaca/fuwari/blob/main/src/types/config.ts}
+ * @see {@link https://github.com/saicaca/fuwari/blob/9a7d7b1f7db21f1252e20088e3932880b5bd43e8/src/types/config.ts}
  */
 
 import type { AUTO_MODE, DARK_MODE, LIGHT_MODE } from "../constants/constants";
@@ -8,7 +8,17 @@ export type SiteConfig = {
 	title: string;
 	subtitle: string;
 
-	lang: "en" | "zh_CN" | "zh_TW" | "ja" | "ko" | "es" | "th";
+	lang:
+		| "en"
+		| "zh_CN"
+		| "zh_TW"
+		| "ja"
+		| "ko"
+		| "es"
+		| "th"
+		| "vi"
+		| "tr"
+		| "id";
 
 	themeColor: {
 		hue: number;
@@ -89,4 +99,8 @@ export type BlogPostData = {
 	prevSlug?: string;
 	nextTitle?: string;
 	nextSlug?: string;
+};
+
+export type ExpressiveCodeConfig = {
+	theme: string;
 };
